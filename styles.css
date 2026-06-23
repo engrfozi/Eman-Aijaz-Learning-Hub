@@ -220,6 +220,50 @@ h3 {
   padding: clamp(58px, 8vw, 104px) clamp(18px, 5vw, 72px);
 }
 
+.spotlight-section {
+  background:
+    linear-gradient(135deg, rgba(255, 209, 102, 0.22), rgba(22, 166, 166, 0.13)),
+    white;
+}
+
+.spotlight-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 58px);
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.spotlight-copy p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.spotlight-photo {
+  margin: 0;
+}
+
+.spotlight-photo img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 30%;
+  border: 8px solid white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.spotlight-photo figcaption {
+  margin-top: 12px;
+  color: #34425a;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-align: center;
+}
+
 .section-heading {
   max-width: 760px;
   margin-bottom: 30px;
@@ -543,7 +587,8 @@ h3 {
 @media (max-width: 980px) {
   .subject-grid,
   .resource-grid,
-  .planner-panel {
+  .planner-panel,
+  .spotlight-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -573,9 +618,14 @@ h3 {
   .subject-grid,
   .resource-grid,
   .planner-panel,
+  .spotlight-layout,
   .planner-checks,
   .study-pack {
     grid-template-columns: 1fr;
+  }
+
+  .spotlight-photo img {
+    max-height: 480px;
   }
 
   .video-list a {
