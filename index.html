@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eman Aijaz Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Eman Aijaz Learning Hub home">
+      <span class="brand-mark">EA</span>
+      <span>Eman Aijaz</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#library">Library</a>
+      <a href="#resources">Resources</a>
+      <a href="#videos">Videos</a>
+      <a href="#planner">Planner</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/learning-hero.png" alt="Students learning with books, laptop, science and math materials" class="hero-image">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Grade 5 to Grade 8</p>
+        <h1>Eman Aijaz Learning Hub</h1>
+        <p class="hero-copy">One cheerful place for notes, video lectures, PowerPoint presentations, subject links, and animated learning resources.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#library">Explore Subjects</a>
+          <a class="button secondary" href="#resources">Best Resources</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Learning focus highlights">
+      <span>Math practice</span>
+      <span>Science experiments</span>
+      <span>English reading</span>
+      <span>Computer skills</span>
+      <span>Social studies</span>
+      <span>Animated lessons</span>
+    </section>
+
+    <section class="section library-section" id="library">
+      <div class="section-heading">
+        <p class="eyebrow">Subject Wise Collection</p>
+        <h2>Choose a grade and start learning</h2>
+        <p>Use these cards for class-wise notes, animated lectures, worksheets, and helpful links for each subject.</p>
+      </div>
+
+      <div class="grade-tabs" role="tablist" aria-label="Select grade">
+        <button class="grade-tab active" type="button" data-grade="5">Grade 5</button>
+        <button class="grade-tab" type="button" data-grade="6">Grade 6</button>
+        <button class="grade-tab" type="button" data-grade="7">Grade 7</button>
+        <button class="grade-tab" type="button" data-grade="8">Grade 8</button>
+      </div>
+
+      <div class="subject-grid" id="subjectGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section resource-section" id="resources">
+      <div class="section-heading">
+        <p class="eyebrow">Best Links</p>
+        <h2>Helpful resources at one platform</h2>
+        <p>Students can use these trusted websites for practice, videos, reading, experiments, and presentations.</p>
+      </div>
+
+      <div class="resource-grid">
+        <a class="resource-card math" href="https://www.khanacademy.org/" target="_blank" rel="noopener">
+          <span class="resource-icon">M</span>
+          <h3>Khan Academy</h3>
+          <p>Free lessons and practice for math, science, grammar, computing, and more.</p>
+        </a>
+        <a class="resource-card science" href="https://phet.colorado.edu/" target="_blank" rel="noopener">
+          <span class="resource-icon">SCI</span>
+          <h3>PhET Simulations</h3>
+          <p>Interactive science and math simulations for experiments students can try online.</p>
+        </a>
+        <a class="resource-card reading" href="https://www.ck12.org/student/" target="_blank" rel="noopener">
+          <span class="resource-icon">CK</span>
+          <h3>CK-12</h3>
+          <p>Free student lessons, practice, videos, and adaptive learning resources.</p>
+        </a>
+        <a class="resource-card practice" href="https://www.mathsisfun.com/" target="_blank" rel="noopener">
+          <span class="resource-icon">PI</span>
+          <h3>Math Is Fun</h3>
+          <p>Clear explanations, games, puzzles, and examples for math topics.</p>
+        </a>
+        <a class="resource-card world" href="https://kids.nationalgeographic.com/" target="_blank" rel="noopener">
+          <span class="resource-icon">GEO</span>
+          <h3>Nat Geo Kids</h3>
+          <p>Science, animals, geography, and history reading made exciting for students.</p>
+        </a>
+        <a class="resource-card coding" href="https://scratch.mit.edu/ideas" target="_blank" rel="noopener">
+          <span class="resource-icon">CODE</span>
+          <h3>Scratch Ideas</h3>
+          <p>Coding projects and creative activities for building games, stories, and animations.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section video-section" id="videos">
+      <div class="section-heading">
+        <p class="eyebrow">Animated Video Links</p>
+        <h2>Learn with motion, stories, and visuals</h2>
+        <p>Use these links for animated explanations, interactive lessons, and video lectures that make difficult topics easier.</p>
+      </div>
+
+      <div class="video-list" id="animatedVideoList" aria-live="polite"></div>
+    </section>
+
+    <section class="section planner-section" id="planner">
+      <div class="planner-panel">
+        <div>
+          <p class="eyebrow">Teacher Dashboard Idea</p>
+          <h2>Keep your class material organized</h2>
+          <p>Each Grade 5 to Grade 8 card now includes quick notes, animated lecture links, and subject material links. Add your own PDF notes, recorded lectures, PowerPoint files, and worksheets later in the material folders.</p>
+        </div>
+        <div class="planner-checks" aria-label="Website features">
+          <span>OK Notes</span>
+          <span>OK Video Lectures</span>
+          <span>OK PowerPoint</span>
+          <span>OK Subject Links</span>
+          <span>OK Grade Filter</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Eman Aijaz Learning Hub | Grade 5 to Grade 8 | Learn, practice, revise, and grow.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
