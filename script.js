@@ -33,7 +33,7 @@ const subjectCatalog = {
     resources: {
       5: {
         notes: ["Plant and animal systems", "Matter and mixtures", "Earth, moon, and simple experiments"],
-        video: "https://www.youtube.com/@crashcoursekids",
+        video: "https://www.youtube.com/@Peekaboo_Kidz",
         material: "https://phet.colorado.edu/en/simulations/filter?subjects=biology&type=html"
       },
       6: {
@@ -43,7 +43,7 @@ const subjectCatalog = {
       },
       7: {
         notes: ["Ecosystems and food webs", "Atoms, elements, and compounds", "Heat, light, and sound"],
-        video: "https://www.youtube.com/@TEDEd",
+        video: "https://www.youtube.com/@FuseSchool",
         material: "https://phet.colorado.edu/en/simulations/filter?subjects=physics&type=html"
       },
       8: {
@@ -177,6 +177,20 @@ const animatedLectureLinks = [
     grade: "5-7",
     href: "https://www.youtube.com/@crashcoursekids",
     summary: "Short visual science lessons for Earth science, life science, matter, and engineering ideas."
+  },
+  {
+    title: "Dr. Binocs Show",
+    subject: "Science",
+    grade: "5-8",
+    href: "https://www.youtube.com/@Peekaboo_Kidz",
+    summary: "Fun animated science explanations about the human body, nature, space, and everyday questions."
+  },
+  {
+    title: "FuseSchool",
+    subject: "Science + Maths",
+    grade: "6-8",
+    href: "https://www.youtube.com/@FuseSchool",
+    summary: "Clear animated lessons for biology, chemistry, physics, and maths revision."
   },
   {
     title: "TED-Ed",
