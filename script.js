@@ -222,12 +222,137 @@ const animatedLectureLinks = [
   }
 ];
 
+const bookLinks = {
+  Mathematics: [
+    { label: "CK-12 Math Books", href: "https://www.ck12.org/student/" },
+    { label: "Math Is Fun Lessons", href: "https://www.mathsisfun.com/" }
+  ],
+  Science: [
+    { label: "CK-12 Science Books", href: "https://www.ck12.org/student/" },
+    { label: "NASA STEM Reading", href: "https://www.nasa.gov/learning-resources/for-kids-and-students/" }
+  ],
+  English: [
+    { label: "British Council Reading", href: "https://learnenglishkids.britishcouncil.org/read-write/reading-practice" },
+    { label: "Project Gutenberg Books", href: "https://www.gutenberg.org/ebooks/bookshelf/20" }
+  ],
+  "Social Studies": [
+    { label: "Nat Geo Kids Reading", href: "https://kids.nationalgeographic.com/" },
+    { label: "World History Encyclopedia", href: "https://www.worldhistory.org/" }
+  ],
+  Computer: [
+    { label: "Code.org Courses", href: "https://code.org/students" },
+    { label: "MDN Web Docs", href: "https://developer.mozilla.org/en-US/docs/Learn" }
+  ],
+  "Urdu / Islamic Studies": [
+    { label: "UrduPoint Kids", href: "https://www.urdupoint.com/kids/" },
+    { label: "Islamic Studies Search", href: "https://www.youtube.com/results?search_query=islamic+studies+for+kids" }
+  ]
+};
+
+const worksheetTemplates = {
+  Mathematics: (grade) => [
+    `Solve 10 mixed Grade ${grade} word problems.`,
+    "Draw one diagram or graph to explain your answer.",
+    "Create a 5-question mental math challenge."
+  ],
+  Science: () => [
+    "Label a diagram from today's topic.",
+    "Write one observation, one question, and one conclusion.",
+    "Plan a safe mini experiment using household items."
+  ],
+  English: () => [
+    "Read one short passage and underline key details.",
+    "Write five new vocabulary words with meanings.",
+    "Rewrite one paragraph with stronger verbs and adjectives."
+  ],
+  "Social Studies": () => [
+    "Make a timeline, map, or fact chart for the topic.",
+    "Write three cause-and-effect statements.",
+    "Compare two places, people, or events in a table."
+  ],
+  Computer: () => [
+    "Complete one digital safety or coding practice task.",
+    "Draw the steps of an algorithm as a flowchart.",
+    "Build a tiny project and list what each step does."
+  ],
+  "Urdu / Islamic Studies": () => [
+    "Read the passage aloud and mark difficult words.",
+    "Write a short answer in neat handwriting.",
+    "Create a values chart with one daily-life example."
+  ]
+};
+
+const quizTemplates = {
+  Mathematics: (topic) => [
+    `Explain ${topic.toLowerCase()} in one sentence.`,
+    "Solve one easy, one medium, and one challenge question.",
+    "How can you check that your answer is correct?"
+  ],
+  Science: (topic) => [
+    `What is the main idea of ${topic.toLowerCase()}?`,
+    "Name two examples from real life.",
+    "What would happen if one condition changed?"
+  ],
+  English: (topic) => [
+    `Give one example related to ${topic.toLowerCase()}.`,
+    "Find the main idea of a short paragraph.",
+    "Write one sentence using a new vocabulary word."
+  ],
+  "Social Studies": (topic) => [
+    `Why is ${topic.toLowerCase()} important?`,
+    "Name one place, date, person, or map feature from the lesson.",
+    "Write one short opinion with a reason."
+  ],
+  Computer: (topic) => [
+    `What is the purpose of ${topic.toLowerCase()}?`,
+    "Write the correct order of three steps.",
+    "Name one safety rule or debugging idea."
+  ],
+  "Urdu / Islamic Studies": (topic) => [
+    `Write the meaning or main lesson of ${topic.toLowerCase()}.`,
+    "Answer one short question from the reading.",
+    "Write one example of how to use this lesson in daily life."
+  ]
+};
+
 const grid = document.querySelector("#subjectGrid");
 const tabs = document.querySelectorAll(".grade-tab");
 const videoList = document.querySelector("#animatedVideoList");
 
-function buildNotes(notes) {
-  return notes.map((note) => `<li>${note}</li>`).join("");
+function buildList(items) {
+  return items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function buildBookLinks(subjectName) {
+  return bookLinks[subjectName]
+    .map((book) => `<a href="${book.href}" target="_blank" rel="noopener">${book.label}</a>`)
+    .join("");
+}
+
+function buildStudyPack(subjectName, grade, resource) {
+  const worksheet = worksheetTemplates[subjectName](grade);
+  const quiz = quizTemplates[subjectName](resource.notes[0]);
+
+  return `
+    <div class="study-pack">
+      <div class="pack-panel notes-panel">
+        <h4>Notes</h4>
+        <ul>${buildList(resource.notes)}</ul>
+      </div>
+      <div class="pack-panel worksheet-panel">
+        <h4>Worksheet</h4>
+        <ul>${buildList(worksheet)}</ul>
+      </div>
+      <div class="pack-panel quiz-panel">
+        <h4>Sample Quiz</h4>
+        <ol>${buildList(quiz)}</ol>
+      </div>
+      <div class="pack-panel book-panel">
+        <h4>Related Books</h4>
+        <div class="book-links">${buildBookLinks(subjectName)}</div>
+      </div>
+    </div>
+  `;
 }
 
 function buildCard(subjectName, subject, grade) {
@@ -243,10 +368,8 @@ function buildCard(subjectName, subject, grade) {
         <span class="subject-icon" aria-hidden="true">${subject.icon}</span>
       </div>
       <p>${subject.description}</p>
-      <div class="quick-notes">
-        <h4>Class ${grade} Notes</h4>
-        <ul>${buildNotes(resource.notes)}</ul>
-      </div>
+      <p class="pack-label">Class ${grade} Study Pack</p>
+      ${buildStudyPack(subjectName, grade, resource)}
       <div class="material-links">
         <a href="${resource.video}" target="_blank" rel="noopener" aria-label="${subjectName} Grade ${grade} animated video lecture">Animated Lecture <span>Play</span></a>
         <a href="${resource.material}" target="_blank" rel="noopener" aria-label="${subjectName} Grade ${grade} notes and practice material">Notes & Material <span>Open</span></a>

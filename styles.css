@@ -321,6 +321,26 @@ h3 {
   line-height: 1.6;
 }
 
+.pack-label {
+  display: inline-flex;
+  margin: 12px 0 0;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: #1b2233;
+  background: color-mix(in srgb, var(--card-color) 18%, white);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.study-pack {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pack-panel,
 .quick-notes {
   margin-top: 18px;
   padding: 14px;
@@ -329,12 +349,21 @@ h3 {
   background: rgba(255, 253, 247, 0.74);
 }
 
+.pack-panel {
+  min-height: 145px;
+  margin-top: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 253, 247, 0.78));
+}
+
+.pack-panel h4,
 .quick-notes h4 {
   margin: 0 0 8px;
   color: #24334d;
   font-size: 0.94rem;
 }
 
+.pack-panel ul,
+.pack-panel ol,
 .quick-notes ul {
   display: grid;
   gap: 6px;
@@ -343,6 +372,36 @@ h3 {
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.45;
+}
+
+.notes-panel { border-top: 4px solid var(--card-color); }
+.worksheet-panel { border-top: 4px solid var(--yellow); }
+.quiz-panel { border-top: 4px solid var(--coral); }
+.book-panel { border-top: 4px solid var(--teal); }
+
+.book-links {
+  display: grid;
+  gap: 8px;
+}
+
+.book-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid rgba(21, 32, 51, 0.12);
+  border-radius: 8px;
+  color: #24334d;
+  background: white;
+  font-size: 0.88rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.book-links a:hover {
+  border-color: var(--card-color);
+  color: var(--card-color);
 }
 
 .material-links {
@@ -514,7 +573,8 @@ h3 {
   .subject-grid,
   .resource-grid,
   .planner-panel,
-  .planner-checks {
+  .planner-checks,
+  .study-pack {
     grid-template-columns: 1fr;
   }
 
